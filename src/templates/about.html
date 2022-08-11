@@ -3,10 +3,12 @@
 {% block content %}
 <h1>This is the about page</h1>
 <p>this is another template</p>
+<h3>{{ title|capfirst|title }}</h3>
 
-<p> These are the context variable
-{{ my_text }}, {{ my_number }}  
+<p> These are the context variable, {{ my_number }}  
 </p>
+
+{{ my_html|safe }} <!-- slugify, striptags-->
 
 <ul>
 {% for my_sub_item in my_list %}
