@@ -14,7 +14,7 @@ def product_create_view(request):
         if my_form.is_valid():
             #now the data is good
             print(my_form.cleaned_data)
-            Products.objects.create(**my_form.cleaned_data) #the data match the model
+            Product.objects.create(**my_form.cleaned_data) #the data match the model
         else:
             print(my_form.errors)
     context = {
