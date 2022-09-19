@@ -6,21 +6,21 @@ from .models import Product
 
 # Create your views here.
 
-def product_create_view(request):
+# def product_create_view(request):
 
-    my_form = RawProductForm()
-    if request.method == "POST":
-        my_form = RawProductForm(request.POST)
-        if my_form.is_valid():
-            #now the data is good
-            print(my_form.cleaned_data)
-            Product.objects.create(**my_form.cleaned_data) #the data match the model
-        else:
-            print(my_form.errors)
-    context = {
-        "form": my_form
-    }
-    return render(request, "products/product_create.html", context)
+#     my_form = RawProductForm()
+#     if request.method == "POST":
+#         my_form = RawProductForm(request.POST)
+#         if my_form.is_valid():
+#             #now the data is good
+#             print(my_form.cleaned_data)
+#             Product.objects.create(**my_form.cleaned_data) #the data match the model
+#         else:
+#             print(my_form.errors)
+#     context = {
+#         "form": my_form
+#     }
+#     return render(request, "products/product_create.html", context)
 
 
 # def product_create_view(request):
@@ -33,16 +33,16 @@ def product_create_view(request):
 #     context = {}
     # return render(request, "products/product_create.html", context)
 
-# def product_create_view(request):
-#     form = ProductForm(request.POST or None)
-#     if form.is_valid():
-#         form.save()
-#         form = ProductForm() #rerender the form (clean)
+def product_create_view(request):
+    form = ProductForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form = ProductForm() #rerender the form (clean)
 
-#     context = {
-#         'form': form,
-#     }
-#     return render(request, "products/product_create.html", context)
+    context = {
+        'form': form,
+    }
+    return render(request, "products/product_create.html", context)
 
 
 def product_detail_view(request):
